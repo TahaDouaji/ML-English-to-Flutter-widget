@@ -21,7 +21,6 @@ def translate_sentence_with_values(model, sentence, english, flutter, device, ma
     code = ''.join(translate_sentence(model, sentence, english, flutter, device, max_length=max_length)).replace('<eos>',
                                                                                                          '').replace(
         'utf-8', '')
-    print(code)
     for idx, dot_val in enumerate(re.findall(".value", code)):
         if len(dot_values) > idx:
             code = code.replace(".value", dot_values[idx])
