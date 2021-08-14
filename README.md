@@ -86,8 +86,8 @@ get an Image with "img.png"
 ```
 Image.asset("img.png")
 ```
-get network Image with "http://example.png"
+get network Image with "Image URL"
 ```
-Image.network("http://example.png")
+Image.network("Image URL")
 ```
 
