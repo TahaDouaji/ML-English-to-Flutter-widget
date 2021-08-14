@@ -74,9 +74,9 @@ Add a text with "Hello" and textSize 22.0
 ```
 CustomText("Hello",fontSize:22.0)
 ```
-Build a box with width 450 inside center
+Build a box with width 450 and height 450 and color Colors.red inside center
 ```
-Center(child:Container(width:450))
+Center(child:Container(width:450, height:450, color: Colors.red))
 ```
 Center parent of text with "This is text inside a center widget"
 ```
