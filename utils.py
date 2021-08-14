@@ -10,24 +10,29 @@ def translate_sentence_with_values(model, sentence, english, flutter, device, ma
     dot_values = []
     for dot_val in re.findall("\.[a-z]+", sentence):
         dot_values.append(dot_val)
-        sentence = sentence.replace(dot_val, ".value")
+        sentence = sentence.replace(dot_val, '.value')
     str_values = []
 
     pattern = r'"([A-Za-z0-9 ]*)"'
     for str_val in re.findall(pattern, sentence):
-        str_values.append(str_val)
-        sentence = sentence.replace(str_val, "value")
+        str_values.append(f'"{str_val}"')
+        sentence = sentence.replace(f'"{str_val}"', 'value')
+    numbers_values = []
 
-    code = ''.join(translate_sentence(model, sentence, english, flutter, device, max_length=max_length)).replace('<eos>',
-                                                                                                         '').replace(
-        'utf-8', '')
+    pattern_num = r'\d*\.\d+|\d+'
+    for num_val in re.findall(pattern_num, sentence):
+        str_values.append(num_val)
+        sentence = sentence.replace(num_val, 'value')
+
+    code = ''.join(translate_sentence(model, sentence, english, flutter, device, max_length=max_length)).replace('<eos>', '').replace('utf-8', '')
+
     for idx, dot_val in enumerate(re.findall(".value", code)):
         if len(dot_values) > idx:
             code = code.replace(".value", dot_values[idx])
 
     for idx, str_val in enumerate(re.findall("value", code)):
         if len(str_values) > idx:
-            code = code.replace("value", f'"{str_values[idx]}"')
+            code = code.replace("value", f'{str_values[idx]}')
 
     return code
 
