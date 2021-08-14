@@ -29,6 +29,8 @@ def translate_sentence_with_values(model, sentence, english, flutter, device, ma
         if len(str_values) > idx:
             code = code.replace("value", f'"{str_values[idx]}"')
 
+    return code
+
 
 def translate_sentence(model, sentence, english, flutter, device, max_length=50):
     # Load English tokenizer
