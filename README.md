@@ -1,6 +1,6 @@
-# English-to-Flutter-widget
+# Machine learning English-to-Flutter-widget
 
-In this repository we'll train **Seq2seq Transformer** model to convert natural English sentences into Flutter UI widget code.
+In this repository we'll train **Seq2seq Transformer** Machine leearning model to convert natural English sentences into Flutter UI widget code.
 
 ### Note
 The goal of this experiment is totally for research purposes, We're not going to support all Flutter widgets for the current phase and also we are using some custom Widget instead of the regular widget to make things easier
